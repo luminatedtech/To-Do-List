@@ -1,5 +1,6 @@
 defmodule ToDoListWeb.Router do
-  alias ToDoListWeb.IncompleteTasksController
+  alias ToDoListWeb.TaskController
+
   use ToDoListWeb, :router
 
   pipeline :browser do
@@ -20,6 +21,7 @@ defmodule ToDoListWeb.Router do
 
     get "/", PageController, :home
     live "/tasks", TasksLive
+    get "/edittasks", PageController, :edit_task
   end
 
   # Other scopes may use custom stacks.

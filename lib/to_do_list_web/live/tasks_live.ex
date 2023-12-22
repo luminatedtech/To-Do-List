@@ -57,10 +57,15 @@ defmodule ToDoListWeb.TasksLive do
               >
                 Complete
               </button>
+                <.link
+                href={~p"/edittasks"}
+                >
+                    Edit
+                </.link>
             </div>
           </div>
         </div>
-        <div :if={@completed} :for={task <- @completed_tasks} class="overflow-hidden bg-red-300 border-2 border-dashed rounded max-w-l">
+        <div :if={@completed} :for={task <- @completed_tasks} >
           <div class="pt-6 pb-6 pl-4 pr-4">
             <div class="pb-3 text-xl font-bold text-center">
               <%= task.name %>
@@ -127,5 +132,6 @@ defmodule ToDoListWeb.TasksLive do
   def handle_event("hide_completed", _unsigned_params, socket) do
     {:noreply, assign(socket, completed: false)}
   end
+
 
 end

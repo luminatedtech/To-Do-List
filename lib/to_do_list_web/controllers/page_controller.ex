@@ -6,4 +6,9 @@ defmodule ToDoListWeb.PageController do
     # so skip the default app layout.
     render(conn, :home, layout: false)
   end
+
+  def edit_task(conn, _params) do
+    render(conn, :edit_task, layout: false)
+  end
+
 end
